@@ -1,39 +1,25 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id("com.google.devtools.ksp") version "1.7.20-1.0.6"
     id "org.jetbrains.kotlin.kapt"
     id 'com.google.dagger.hilt.android'
 }
 
 android {
+    namespace 'com.team.feature.auth'
     compileSdk 33
 
-    kotlin {
-        sourceSets.main {
-            kotlin.srcDir("build/generated/ksp/main/kotlin")
-        }
-        sourceSets.test {
-            kotlin.srcDir("build/generated/ksp/test/kotlin")
-        }
-    }
-
     defaultConfig {
-        applicationId "com.team.financemanager"
         minSdk 24
         targetSdk 33
-        versionCode 1
-        versionName "0.0.1" // X.Y.Z; X = Major, Y = minor, Z = Patch level
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary true
-        }
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -51,30 +37,15 @@ android {
     kapt {
         correctErrorTypes true
     }
-
     composeOptions {
         kotlinCompilerExtensionVersion compose_compiler_version
     }
-    packagingOptions {
-        resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-        }
-    }
-    namespace 'com.team.financemanager'
 }
 
 dependencies {
 
     implementation (project(path: ":core:designsystem"))
     implementation (project(path: ":core:navigation"))
-    implementation (project(path: ":feature:auth"))
-
-    implementation 'androidx.core:core-splashscreen:1.0.0'
-
-    def ktorVersion = '2.1.2'
-    implementation("io.ktor:ktor-client-core:$ktorVersion")
-    implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
-    implementation("io.ktor:ktor-client-cio:$ktorVersion")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
@@ -88,6 +59,7 @@ dependencies {
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.runtime:runtime-tracing:1.0.0-alpha01"
     implementation "androidx.tracing:tracing-ktx:1.1.0"
+    implementation 'androidx.lifecycle:lifecycle-runtime-compose:2.6.0-alpha02'
 
     // Accompanist
     def AccompanistVersion = '0.26.4-beta'
@@ -122,18 +94,10 @@ dependencies {
     implementation("io.coil-kt:coil-compose:$CoilVersion")
     implementation "io.coil-kt:coil-svg:$CoilVersion"
 
-
-    def roomVersion = "2.5.0-alpha03"
-    implementation "androidx.room:room-runtime:$roomVersion"
-    ksp("androidx.room:room-compiler:$roomVersion")
-    // optional - Test helpers
-    testImplementation "androidx.room:room-testing:$roomVersion"
-    // optional - Paging 3 Integration
-    implementation "androidx.room:room-paging:$roomVersion"
-
     // Dagger-Hilt
     implementation 'com.google.dagger:hilt-android:2.44'
     kapt 'com.google.dagger:hilt-compiler:2.44'
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
     // For instrumentation tests
     androidTestImplementation 'com.google.dagger:hilt-android-testing:2.44'
     kaptAndroidTest 'com.google.dagger:hilt-compiler:2.44'

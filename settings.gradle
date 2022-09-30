@@ -14,4 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "FinanceManager"
 include ':app'
-include ':core-common'
+include ':core:common'
+include ':core:designsystem'
+include ':core:navigation'
+include ':feature:auth'
