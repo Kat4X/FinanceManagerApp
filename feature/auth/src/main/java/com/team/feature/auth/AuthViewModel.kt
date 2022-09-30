@@ -1,6 +1,8 @@
 package com.team.feature.auth
 
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -26,6 +28,8 @@ class AuthViewModel @Inject constructor(
     var loginField by savedStateHandle.saveable {
         mutableStateOf("")
     }
+    var password: String by mutableStateOf("")
+        private set
 
     val loginUiState: StateFlow<LoginUiState> = flow {
         emit(LoginUiState.None)
@@ -34,5 +38,9 @@ class AuthViewModel @Inject constructor(
         started = SharingStarted.WhileSubscribed(),
         initialValue = LoginUiState.None
     )
+
+    fun signIn() {
+
+    }
 
 }

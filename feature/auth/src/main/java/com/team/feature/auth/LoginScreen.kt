@@ -1,14 +1,27 @@
 package com.team.feature.auth
 
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.ArrowBackIosNew
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.TextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.team.core.designsystem.theme.FMTheme
@@ -17,23 +30,102 @@ import com.team.core.designsystem.theme.FMTheme
 @Composable
 fun LoginRoute(
     modifier: Modifier = Modifier,
-    viewModel: AuthViewModel = hiltViewModel()
+    viewModel: AuthViewModel
 ) {
-    val uiState = viewModel.loginUiState.collectAsStateWithLifecycle()
+    val uiState by viewModel.loginUiState.collectAsStateWithLifecycle()
+
+    LoginScreen(
+        loginState = uiState,
+        phone = viewModel.loginField,
+        onPhoneChange = {},
+        password = viewModel.password,
+        onPasswordChange = {},
+        onNavigationBack = { /*TODO*/ },
+        onContinueClick = { /*TODO*/ })
+
 }
 
-@OptIn(ExperimentalLifecycleComposeApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(
     loginState: LoginUiState,
+    phone: String,
+    onPhoneChange: (String) -> Unit,
+    password: String,
+    onPasswordChange: (String) -> Unit,
+    onNavigationBack: () -> Unit,
+    onContinueClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Scaffold() {
-        TextField(
-            value = "",
-            onValueChange = {
+
+    Scaffold(
+        modifier = modifier,
+        topBar = {
+            TopAppBar(
+                title = {},
+                navigationIcon = {
+                    IconButton(onClick = onNavigationBack) {
+                        Icon(
+                            imageVector = Icons.Rounded.ArrowBackIosNew,
+                            contentDescription = "Button to navigate back"
+                        )
+                    }
+                }
+            )
+        }
+    ) { innerPadding ->
+        Column(modifier = Modifier.padding(innerPadding)) {
+
+            Text( // Title
+                "Some text idk",
+                style = MaterialTheme.typography.headlineMedium,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
+
+            Text( // Paragraph
+                "Some text idk asdljmaklsdanjsbdnnakjsndjasdnajd",
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
+
+            OutlinedTextField( // Phone field
+                value = phone,
+                onValueChange = onPhoneChange,
+                shape = RoundedCornerShape(8.dp),
+                placeholder = {
+                    Text(text = "Номер телефона или Email")
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+            )
+
+            Spacer(modifier = Modifier.padding(16.dp))
+
+            OutlinedTextField( // Password field
+                value = password,
+                onValueChange = onPasswordChange,
+                placeholder = {
+                    Text(text = "Пароль")
+                },
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+            )
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                shape = RoundedCornerShape(12.dp),
+                onClick = onContinueClick
+            ) {
+                Text(text = "SingIn")
             }
-        )
+        }
     }
 }
 
@@ -43,7 +135,13 @@ fun PreviewLoginScreen() {
     BoxWithConstraints {
         FMTheme {
             LoginScreen(
-                loginState = LoginUiState.None
+                loginState = LoginUiState.None,
+                phone = "",
+                onPhoneChange = {},
+                password = "",
+                onPasswordChange = {},
+                onNavigationBack = {},
+                onContinueClick = {}
             )
         }
     }
