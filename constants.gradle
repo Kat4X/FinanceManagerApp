@@ -4,6 +4,8 @@ ext {
     codeVersion = 1
     nameCodeVersion = "0.0.1" // X.Y.Z; X = Major, Y = minor, Z = Patch level
 
+    gradle_versions_version = "0.42.0"
+
     coreVersion = "1.9.0"
     AppCompatVersion = "1.5.1"
     timberVersion = "5.0.1"
@@ -28,5 +30,4 @@ ext {
 
     ktorVersion = "2.1.2"
     roomVersion = '2.5.0-beta01'
-
 }
