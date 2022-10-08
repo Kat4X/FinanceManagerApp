@@ -65,11 +65,14 @@ android {
 
 dependencies {
 
+    implementation (project(path: ":core:common"))
     implementation (project(path: ":core:designsystem"))
     implementation (project(path: ":core:navigation"))
     implementation (project(path: ":feature:auth"))
 
     implementation 'androidx.core:core-splashscreen:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.4.0'
 
     def ktorVersion = '2.1.2'
     implementation("io.ktor:ktor-client-core:$ktorVersion")
@@ -82,15 +85,15 @@ dependencies {
     implementation "androidx.compose.animation:animation:$compose_version"
     implementation "androidx.compose.foundation:foundation:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
-    implementation 'androidx.compose.material3:material3:1.0.0-beta03'
-    implementation 'androidx.compose.material3:material3-window-size-class:1.0.0-beta03'
+    implementation 'androidx.compose.material3:material3:1.0.0-rc01'
+    implementation 'androidx.compose.material3:material3-window-size-class:1.0.0-rc01'
     implementation "androidx.compose.runtime:runtime:$compose_version"
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.runtime:runtime-tracing:1.0.0-alpha01"
     implementation "androidx.tracing:tracing-ktx:1.1.0"
 
     // Accompanist
-    def AccompanistVersion = '0.26.4-beta'
+    def AccompanistVersion = '0.26.5-rc'
     implementation "com.google.accompanist:accompanist-flowlayout:$AccompanistVersion"
     implementation "com.google.accompanist:accompanist-navigation-animation:$AccompanistVersion"
     implementation "com.google.accompanist:accompanist-permissions:$AccompanistVersion"
@@ -117,13 +120,13 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$arch_version"
     testImplementation "androidx.lifecycle:lifecycle-runtime-testing:$lifecycle_version"
 
-    def CoilVersion = "2.2.1"
+    def CoilVersion = '2.2.2'
     implementation("io.coil-kt:coil:$CoilVersion")
     implementation("io.coil-kt:coil-compose:$CoilVersion")
     implementation "io.coil-kt:coil-svg:$CoilVersion"
 
 
-    def roomVersion = "2.5.0-alpha03"
+    def roomVersion = '2.5.0-beta01'
     implementation "androidx.room:room-runtime:$roomVersion"
     ksp("androidx.room:room-compiler:$roomVersion")
     // optional - Test helpers

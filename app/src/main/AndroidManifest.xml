@@ -5,8 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="false"
         android:name=".FMApplication"
+        android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -15,6 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanceManager"
         tools:targetApi="33">
+        <activity
+            android:process=":error_handler"
+            android:name=".CrashActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
