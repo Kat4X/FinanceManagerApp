@@ -1,0 +1,95 @@
+ext {
+    androidCoreLibs = [
+            "androidx.core:core-ktx:$coreVersion",
+            "androidx.appcompat:appcompat:$AppCompatVersion",
+            "androidx.core:core-splashscreen:$SplashScreenVersion",
+            "com.jakewharton.timber:timber:$timberVersion",
+            "androidx.tracing:tracing-ktx:$tracingVersion"
+    ]
+    lifecycleLibs = [
+            "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion",
+            "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion",
+            "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion",
+            "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion",
+            "androidx.lifecycle:lifecycle-service:$lifecycleVersion",
+            "androidx.lifecycle:lifecycle-process:$lifecycleVersion",
+    ]
+    lifecycleTestLibs = [
+            "androidx.lifecycle:lifecycle-runtime-testing:$lifecycleVersion"
+    ]
+    // Coroutines
+    coroutinesLibs = [
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion",
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+    ]
+    uiLibs = [
+            "androidx.activity:activity-compose:$activityComposeVersion",
+            "androidx.compose.ui:ui:$composeVersion",
+            "androidx.compose.ui:ui-tooling-preview:$composeVersion",
+            "androidx.compose.animation:animation:$composeVersion",
+            "androidx.compose.foundation:foundation:$composeVersion",
+            "androidx.compose.material:material:$composeVersion",
+            "androidx.compose.material3:material3:$material3Version",
+            "androidx.compose.material3:material3-window-size-class:$material3WindowSizeVersion",
+            "androidx.compose.runtime:runtime:$composeVersion",
+            "androidx.compose.ui:ui:$composeVersion",
+            "androidx.compose.runtime:runtime-tracing:$tracingRuntimeVersion",
+
+            "io.coil-kt:coil:$coilVersion",
+            "io.coil-kt:coil-compose:$coilVersion",
+            "io.coil-kt:coil-svg:$coilVersion"
+    ]
+    uiDebugLibs = [
+            "androidx.compose.ui:ui-tooling:$composeVersion",
+            "androidx.compose.ui:ui-test-manifest:$composeVersion"
+    ]
+    accompanistLibs = [
+            "com.google.accompanist:accompanist-flowlayout:$AccompanistVersion",
+            "com.google.accompanist:accompanist-navigation-animation:$AccompanistVersion",
+            "com.google.accompanist:accompanist-permissions:$AccompanistVersion",
+            "com.google.accompanist:accompanist-systemuicontroller:$AccompanistVersion",
+            "com.google.accompanist:accompanist-pager:$AccompanistVersion",
+            // If using indicators, also depend on
+            "com.google.accompanist:accompanist-pager-indicators:$AccompanistVersion",
+            // If you're using Material, use accompanist-placeholder-material
+            "com.google.accompanist:accompanist-placeholder-material:$AccompanistVersion",
+            // Otherwise use the foundation version
+            // "com.google.accompanist:accompanist-placeholder:<version>"
+    ]
+    // Dagger-Hilt
+    hiltCoreLibs = [
+            "com.google.dagger:hilt-android:$hiltVersion"
+    ]
+    hiltCoreKaptLibs = [
+            "com.google.dagger:hilt-compiler:$hiltVersion",
+    ]
+    hiltInstrumentationTestLibs = [
+            "com.google.dagger:hilt-android-testing:$hiltVersion"
+    ]
+    hiltInstrumentationTestKaptLibs = [
+            "com.google.dagger:hilt-compiler:$hiltVersion"
+    ]
+    hiltLocalTestLibs = [
+            "com.google.dagger:hilt-android-testing:$hiltVersion"
+    ]
+    hiltLocalTestKaptLibs = [
+            "com.google.dagger:hilt-compiler:$hiltVersion"
+    ]
+    // Ktor
+    ktorLibs = [
+            "io.ktor:ktor-client-core:$ktorVersion",
+            "io.ktor:ktor-client-okhttp:$ktorVersion",
+            "io.ktor:ktor-client-cio:$ktorVersion"
+    ]
+    //Room
+    roomLibs = [
+            "androidx.room:room-runtime:$roomVersion",
+            "androidx.room:room-paging:$roomVersion"
+    ]
+    roomKspLibs = [
+            "androidx.room:room-compiler:$roomVersion"
+    ]
+    roomTestLibs = [
+            "androidx.room:room-testing:$roomVersion"
+    ]
+}
