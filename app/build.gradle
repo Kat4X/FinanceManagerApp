@@ -10,6 +10,14 @@ apply from: rootProject.constPath
 apply from: rootProject.depsPath
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Dev\\AndroidStoreKeys\\FinanceManagerKey.jks')
+            storePassword 'Sus1337'
+            keyAlias 'fm'
+            keyPassword 'Sus1337'
+        }
+    }
     compileSdk sdkVersion
 
     kotlin {
@@ -29,12 +37,20 @@ android {
         versionName nameCodeVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments["androidx.benchmark.suppressErrors"] = "EMULATOR"
+
+        signingConfig signingConfigs.debug
     }
 
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        benchmark {
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release']
+            debuggable false
         }
     }
     compileOptions {

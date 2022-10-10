@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
 import com.team.core.designsystem.component.FMBackground
+import com.team.core.designsystem.component.pressClickEffect
 import com.team.core.designsystem.theme.FMTheme
 
 @OptIn(
@@ -57,7 +58,8 @@ fun FinanceManagerApp(
                     Button(
                         onClick = {
                             throw Error("Hi, im a test error))")
-                        }
+                        },
+                        modifier = Modifier.pressClickEffect()
                     ) {
                         Text(text = "Get error")
                     }

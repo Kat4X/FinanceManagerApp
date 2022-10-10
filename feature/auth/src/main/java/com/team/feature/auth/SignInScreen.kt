@@ -28,13 +28,13 @@ import com.team.core.designsystem.theme.FMTheme
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
-fun LoginRoute(
+fun SignInRoute(
     modifier: Modifier = Modifier,
     viewModel: AuthViewModel
 ) {
     val uiState by viewModel.loginUiState.collectAsStateWithLifecycle()
 
-    LoginScreen(
+    SignInScreen(
         loginState = uiState,
         phone = viewModel.loginField,
         onPhoneChange = {},
@@ -47,7 +47,7 @@ fun LoginRoute(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(
+fun SignInScreen(
     loginState: LoginUiState,
     phone: String,
     onPhoneChange: (String) -> Unit,
@@ -134,7 +134,7 @@ fun LoginScreen(
 fun PreviewLoginScreen() {
     BoxWithConstraints {
         FMTheme {
-            LoginScreen(
+            SignInScreen(
                 loginState = LoginUiState.None,
                 phone = "",
                 onPhoneChange = {},
