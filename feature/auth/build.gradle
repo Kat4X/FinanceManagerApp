@@ -5,6 +5,9 @@
      id "org.jetbrains.kotlin.kapt"
  }
 
+ apply from: rootProject.constPath
+ apply from: rootProject.depsPath
+
 android {
     namespace 'com.team.feature.auth'
     compileSdk 33
@@ -43,6 +46,10 @@ android {
 }
 
 dependencies {
+
+    implementation uiLibs
+    debugImplementation uiDebugLibs
+    implementation accompanistLibs
 
     implementation (project(path: ":core:designsystem"))
     implementation (project(path: ":core:navigation"))

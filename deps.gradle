@@ -34,6 +34,7 @@ ext {
             "androidx.compose.runtime:runtime:$composeVersion",
             "androidx.compose.ui:ui:$composeVersion",
             "androidx.compose.runtime:runtime-tracing:$tracingRuntimeVersion",
+            "androidx.compose.material:material-icons-extended:$iconExtensions",
 
             "io.coil-kt:coil:$coilVersion",
             "io.coil-kt:coil-compose:$coilVersion",

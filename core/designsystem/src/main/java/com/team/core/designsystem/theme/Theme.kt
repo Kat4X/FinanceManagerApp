@@ -11,69 +11,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.team.designsystem.theme.*
 import com.team.designsystem.theme.BaseTypography
-import com.team.designsystem.theme.Blue10
-import com.team.designsystem.theme.Blue20
-import com.team.designsystem.theme.Blue30
-import com.team.designsystem.theme.Blue40
-import com.team.designsystem.theme.Blue80
-import com.team.designsystem.theme.Blue90
-import com.team.designsystem.theme.Blue95
-import com.team.designsystem.theme.DarkGreen10
-import com.team.designsystem.theme.DarkGreen20
-import com.team.designsystem.theme.DarkGreen30
-import com.team.designsystem.theme.DarkGreen40
-import com.team.designsystem.theme.DarkGreen80
-import com.team.designsystem.theme.DarkGreen90
-import com.team.designsystem.theme.DarkGreenGray10
-import com.team.designsystem.theme.DarkGreenGray90
-import com.team.designsystem.theme.DarkGreenGray95
-import com.team.designsystem.theme.DarkGreenGray99
-import com.team.designsystem.theme.DarkPurpleGray10
-import com.team.designsystem.theme.DarkPurpleGray90
-import com.team.designsystem.theme.DarkPurpleGray95
-import com.team.designsystem.theme.DarkPurpleGray99
-import com.team.designsystem.theme.Green10
-import com.team.designsystem.theme.Green20
-import com.team.designsystem.theme.Green30
-import com.team.designsystem.theme.Green40
-import com.team.designsystem.theme.Green80
-import com.team.designsystem.theme.Green90
-import com.team.designsystem.theme.GreenGray30
-import com.team.designsystem.theme.GreenGray50
-import com.team.designsystem.theme.GreenGray60
-import com.team.designsystem.theme.GreenGray80
-import com.team.designsystem.theme.GreenGray90
-import com.team.designsystem.theme.Orange10
-import com.team.designsystem.theme.Orange20
-import com.team.designsystem.theme.Orange30
-import com.team.designsystem.theme.Orange40
-import com.team.designsystem.theme.Orange80
-import com.team.designsystem.theme.Orange90
-import com.team.designsystem.theme.Orange95
-import com.team.designsystem.theme.Purple10
-import com.team.designsystem.theme.Purple20
-import com.team.designsystem.theme.Purple30
-import com.team.designsystem.theme.Purple40
-import com.team.designsystem.theme.Purple80
-import com.team.designsystem.theme.Purple90
-import com.team.designsystem.theme.Purple95
-import com.team.designsystem.theme.PurpleGray30
-import com.team.designsystem.theme.PurpleGray50
-import com.team.designsystem.theme.PurpleGray60
-import com.team.designsystem.theme.PurpleGray80
-import com.team.designsystem.theme.PurpleGray90
-import com.team.designsystem.theme.Red10
-import com.team.designsystem.theme.Red20
-import com.team.designsystem.theme.Red30
-import com.team.designsystem.theme.Red40
-import com.team.designsystem.theme.Red80
-import com.team.designsystem.theme.Red90
-import com.team.designsystem.theme.Teal10
-import com.team.designsystem.theme.Teal20
-import com.team.designsystem.theme.Teal30
-import com.team.designsystem.theme.Teal40
-import com.team.designsystem.theme.Teal80
-import com.team.designsystem.theme.Teal90
 
 
 /**
@@ -277,6 +214,7 @@ fun FMTheme(
         MaterialTheme(
             colorScheme = colorScheme,
             typography = BaseTypography,
+            shapes = shapes,
             content = content
         )
     }

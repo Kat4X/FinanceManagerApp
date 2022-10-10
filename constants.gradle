@@ -21,7 +21,7 @@ ext {
     material3Version = "1.0.0-rc01"
     material3WindowSizeVersion = "1.0.0-rc01"
     tracingRuntimeVersion = "1.0.0-alpha01"
-
+    iconExtensions = "1.3.0-rc01"
 
     hiltVersion = "2.44"
 
