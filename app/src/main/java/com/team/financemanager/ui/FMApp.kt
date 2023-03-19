@@ -18,9 +18,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
-import com.team.core.designsystem.component.FMBackground
-import com.team.core.designsystem.component.pressClickEffect
-import com.team.core.designsystem.theme.FMTheme
+import com.team.core.design.component.FMBackground
+import com.team.core.design.component.pressClickEffect
+import com.team.core.design.theme.FMTheme
 
 @OptIn(
     ExperimentalMaterial3Api::class,
@@ -30,7 +30,6 @@ import com.team.core.designsystem.theme.FMTheme
 @Composable
 fun FinanceManagerApp(
     windowSizeClass: WindowSizeClass,
-    appState: FMAppState = rememberFMAppState(windowSizeClass)
 ) {
     FMTheme() {
         FMBackground {
@@ -41,13 +40,7 @@ fun FinanceManagerApp(
                 containerColor = Color.Transparent,
                 contentColor = MaterialTheme.colorScheme.onBackground,
                 bottomBar = {
-                    if (appState.shouldShowBottomBar) {
-                        /*NiaBottomBar(
-                            destinations = appState.topLevelDestinations,
-                            onNavigateToDestination = appState::navigate,
-                            currentDestination = appState.currentDestination
-                        )*/
-                    }
+
                 }
             ) { innerPadding ->
                 Column(

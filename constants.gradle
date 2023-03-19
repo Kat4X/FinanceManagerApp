@@ -16,7 +16,7 @@ ext {
 
     activityComposeVersion = "1.6.0"
     composeVersion = '1.3.0-rc01'
-    composeCompilerVersion = "1.3.2"
+    composeCompilerVersion = "1.4.3"
     coilVersion = '2.2.2'
     material3Version = "1.0.0-rc01"
     material3WindowSizeVersion = "1.0.0-rc01"

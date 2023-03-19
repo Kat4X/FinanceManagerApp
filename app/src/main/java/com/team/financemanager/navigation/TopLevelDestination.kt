@@ -1,7 +1,7 @@
 package com.team.financemanager.navigation
 
 import androidx.annotation.Keep
-import com.team.core.designsystem.icon.Icon
+import com.team.core.design.icon.Icon
 import com.team.core.navigation.FMNavigationDestination
 
 /**

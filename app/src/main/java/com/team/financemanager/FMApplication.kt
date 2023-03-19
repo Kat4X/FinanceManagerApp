@@ -2,12 +2,9 @@ package com.team.financemanager
 
 import android.app.Application
 import com.team.core.common.GlobalExceptionHandler
-import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
-@HiltAndroidApp
-class FMApplication: Application() {
-
+class FMApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 

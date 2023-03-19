@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.team.core.common.GlobalExceptionHandler
-import com.team.core.designsystem.theme.FMTheme
+import com.team.core.design.theme.FMTheme
 import timber.log.Timber
 
 class CrashActivity : ComponentActivity() {
