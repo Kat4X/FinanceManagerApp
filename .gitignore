@@ -1,16 +1,33 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Все папки build в проекте
+build/
+# Кроме пакетов с названием build в коде
+!**/src/**/build/
+
+# Local configuration file (sdk path, etc)
 local.properties
-/app/release
+
+# Gradle generated files
+.gradle/
+
+# IntelliJ
+.idea/*
+!.idea/detekt.xml
+!.idea/externalDependencies.xml
+!.idea/vcs.xml
+*.iml
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Android Studio generated
+.externalNativeBuild
+.cxx/
+
+# Android Profiling
+*.hprof

@@ -22,11 +22,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.team.core.designsystem.theme.FMTheme
+import com.team.core.design.theme.FMTheme
 
-@OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
 fun SignInRoute(
     modifier: Modifier = Modifier,
@@ -36,9 +34,9 @@ fun SignInRoute(
 
     SignInScreen(
         loginState = uiState,
-        phone = viewModel.loginField,
+        phone = "",
         onPhoneChange = {},
-        password = viewModel.password,
+        password = "",
         onPasswordChange = {},
         onNavigationBack = { /*TODO*/ },
         onContinueClick = { /*TODO*/ })
@@ -48,7 +46,7 @@ fun SignInRoute(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignInScreen(
-    loginState: LoginUiState,
+    loginState: AuthViewModel.UiState,
     phone: String,
     onPhoneChange: (String) -> Unit,
     password: String,
@@ -135,7 +133,7 @@ fun PreviewLoginScreen() {
     BoxWithConstraints {
         FMTheme {
             SignInScreen(
-                loginState = LoginUiState.None,
+                loginState = AuthViewModel.UiState(),
                 phone = "",
                 onPhoneChange = {},
                 password = "",
