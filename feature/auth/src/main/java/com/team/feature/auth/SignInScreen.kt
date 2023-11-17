@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.team.core.design.theme.FMTheme
 
 @Composable
 fun SignInRoute(
@@ -130,17 +131,17 @@ fun SignInScreen(
 @Composable
 fun PreviewLoginScreen() {
     BoxWithConstraints {
-//        FMTheme {
-//            SignInScreen(
-//                loginState = LoginUiState.None,
-//                phone = "",
-//                onPhoneChange = {},
-//                password = "",
-//                onPasswordChange = {},
-//                onNavigationBack = {},
-//                onContinueClick = {}
-//            )
-//        }
+        FMTheme {
+            SignInScreen(
+                loginState = AuthViewModel.UiState(),
+                phone = "",
+                onPhoneChange = {},
+                password = "",
+                onPasswordChange = {},
+                onNavigationBack = {},
+                onContinueClick = {}
+            )
+        }
     }
 }
 

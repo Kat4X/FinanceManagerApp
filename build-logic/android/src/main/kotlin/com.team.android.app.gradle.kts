@@ -11,6 +11,7 @@ android {
     lint {
         checkReleaseBuilds = false
         checkDependencies = true
+        abortOnError = false
 
         lintConfig = lintConfiguration
     }

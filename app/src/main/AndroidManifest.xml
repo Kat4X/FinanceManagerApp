@@ -8,6 +8,7 @@
         android:name=".FMApplication"
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanceManager"
         tools:targetApi="33">
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="${isCrashlyticsEnabled}" />
         <profileable
             android:shell="true"
             tools:targetApi="33" />

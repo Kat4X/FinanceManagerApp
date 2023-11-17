@@ -63,10 +63,22 @@ junit = "4.13.2"
 androidx-test-ext-junit115 = "1.1.5"
 androidx-test-espresso-espresso-core = "3.5.1"
 violations = "1.52.2"
+dependencyVersionsGradlePlugin = "0.44.0"
 
 [libraries]
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+dependencyVersions-gradlePlugin = { group = "com.github.ben-manes", name = "gradle-versions-plugin", version.ref = "dependencyVersionsGradlePlugin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
+violations-gradlePlugin = { group = "se.bjurr.violations", name = "violations-gradle-plugin", version.ref = "violations" }
+
+
+detekt-compose = { group = "com.twitter.compose.rules", name = "detekt", version.ref = "detektCompose" }
+detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
+
+
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-performance = { module = "com.google.firebase:firebase-perf-ktx" }
 firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
@@ -74,13 +86,6 @@ firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging-ktx" }
 firebase-inappmessaging-ktx = { module = "com.google.firebase:firebase-inappmessaging-ktx" }
 firebase-inappmessaging-display-ktx = { module = "com.google.firebase:firebase-inappmessaging-display-ktx" }
-kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
-detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
-violations-gradlePlugin = { group = "se.bjurr.violations", name = "violations-gradle-plugin", version.ref = "violations" }
-
-detekt-compose = { group = "com.twitter.compose.rules", name = "detekt", version.ref = "detektCompose" }
-detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
-
 # Default dependencies
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
@@ -113,8 +118,8 @@ android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs
 
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
 androidx-benchmark-macro = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "androidxMacroBenchmark" }
-androidx-paging-runtime = { group="androidx.paging", name="paging-runtime", version.ref="androidxPagingRuntime" }
-androidx-paging-compose = { group="androidx.paging", name="paging-compose", version.ref="androidxPaging" }
+androidx-paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.ref = "androidxPagingRuntime" }
+androidx-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "androidxPaging" }
 
 # Network BOM
 okhttp-bom = { group = "com.squareup.okhttp3", name = "okhttp-bom", version.ref = "okHttp" }
