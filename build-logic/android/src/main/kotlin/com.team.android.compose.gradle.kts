@@ -17,6 +17,7 @@ configure<BaseExtension> {
 }
 
 dependencies {
+
     val platform = platform(libs.androidx.compose.bom)
     implementation(platform)
     implementation(libs.androidx.activity.compose)
@@ -33,8 +34,4 @@ dependencies {
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.compose.material.iconsExtended)
-
-    implementation(libs.coil.kt)
-    implementation(libs.coil.kt.compose)
-    implementation(libs.coil.kt.svg)
 }

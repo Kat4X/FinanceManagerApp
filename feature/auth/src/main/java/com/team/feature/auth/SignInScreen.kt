@@ -23,12 +23,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.team.core.design.theme.FMTheme
+import com.team.core.design.theme.StellarisTheme
 
 @Composable
 fun SignInRoute(
     modifier: Modifier = Modifier,
-    viewModel: AuthViewModel
+    viewModel: AuthViewModel,
 ) {
     val uiState by viewModel.loginUiState.collectAsStateWithLifecycle()
 
@@ -39,8 +39,8 @@ fun SignInRoute(
         password = "",
         onPasswordChange = {},
         onNavigationBack = { /*TODO*/ },
-        onContinueClick = { /*TODO*/ })
-
+        onContinueClick = { /*TODO*/ },
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -53,7 +53,7 @@ fun SignInScreen(
     onPasswordChange: (String) -> Unit,
     onNavigationBack: () -> Unit,
     onContinueClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
 
     Scaffold(
@@ -65,28 +65,31 @@ fun SignInScreen(
                     IconButton(onClick = onNavigationBack) {
                         Icon(
                             imageVector = Icons.Rounded.ArrowBackIosNew,
-                            contentDescription = "Button to navigate back"
+                            contentDescription = "Button to navigate back",
                         )
                     }
-                }
+                },
             )
-        }
+        },
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
 
-            Text( // Title
+            Text(
+                // Title
                 "Some text idk",
                 style = MaterialTheme.typography.headlineMedium,
-                modifier = Modifier.padding(horizontal = 16.dp)
+                modifier = Modifier.padding(horizontal = 16.dp),
             )
 
-            Text( // Paragraph
+            Text(
+                // Paragraph
                 "Some text idk asdljmaklsdanjsbdnnakjsndjasdnajd",
                 style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.padding(horizontal = 16.dp)
+                modifier = Modifier.padding(horizontal = 16.dp),
             )
 
-            OutlinedTextField( // Phone field
+            OutlinedTextField(
+                // Phone field
                 value = phone,
                 onValueChange = onPhoneChange,
                 shape = RoundedCornerShape(8.dp),
@@ -95,12 +98,13 @@ fun SignInScreen(
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 16.dp),
             )
 
             Spacer(modifier = Modifier.padding(16.dp))
 
-            OutlinedTextField( // Password field
+            OutlinedTextField(
+                // Password field
                 value = password,
                 onValueChange = onPasswordChange,
                 placeholder = {
@@ -109,7 +113,7 @@ fun SignInScreen(
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 16.dp),
             )
 
             Spacer(modifier = Modifier.weight(1f))
@@ -119,7 +123,7 @@ fun SignInScreen(
                     .fillMaxWidth()
                     .padding(16.dp),
                 shape = RoundedCornerShape(12.dp),
-                onClick = onContinueClick
+                onClick = onContinueClick,
             ) {
                 Text(text = "SingIn")
             }
@@ -131,7 +135,7 @@ fun SignInScreen(
 @Composable
 fun PreviewLoginScreen() {
     BoxWithConstraints {
-        FMTheme {
+        StellarisTheme {
             SignInScreen(
                 loginState = AuthViewModel.UiState(),
                 phone = "",
@@ -139,7 +143,7 @@ fun PreviewLoginScreen() {
                 password = "",
                 onPasswordChange = {},
                 onNavigationBack = {},
-                onContinueClick = {}
+                onContinueClick = {},
             )
         }
     }

@@ -10,8 +10,8 @@ import kotlin.system.exitProcess
 class GlobalExceptionHandler private constructor(
     private val applicationContext: Context,
     private val defaultHandler: Thread.UncaughtExceptionHandler,
-    private val activityToBeLaunch: Class<*>
-): Thread.UncaughtExceptionHandler {
+    private val activityToBeLaunch: Class<*>,
+) : Thread.UncaughtExceptionHandler {
 
     override fun uncaughtException(t: Thread, e: Throwable) {
         try {
@@ -28,12 +28,12 @@ class GlobalExceptionHandler private constructor(
 
         fun initialize(
             applicationContext: Context,
-            activityToBeLaunch: Class<*>
+            activityToBeLaunch: Class<*>,
         ) {
             val handler = GlobalExceptionHandler(
                 applicationContext = applicationContext,
                 defaultHandler = Thread.getDefaultUncaughtExceptionHandler() as Thread.UncaughtExceptionHandler,
-                activityToBeLaunch = activityToBeLaunch
+                activityToBeLaunch = activityToBeLaunch,
             )
             Thread.setDefaultUncaughtExceptionHandler(handler)
         }

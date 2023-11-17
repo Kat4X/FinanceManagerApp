@@ -9,9 +9,9 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.team.designsystem.theme.*
 import com.team.designsystem.theme.BaseTypography
-
+import com.team.designsystem.theme.GradientColors
+import com.team.designsystem.theme.LocalGradientColors
 
 /**
  * Light default theme color scheme
@@ -40,7 +40,7 @@ val LightDefaultColorScheme = lightColorScheme(
     onSurface = DarkPurpleGray10,
     surfaceVariant = PurpleGray90,
     onSurfaceVariant = PurpleGray30,
-    outline = PurpleGray50
+    outline = PurpleGray50,
 )
 
 /**
@@ -70,7 +70,7 @@ val DarkDefaultColorScheme = darkColorScheme(
     onSurface = DarkPurpleGray90,
     surfaceVariant = PurpleGray30,
     onSurfaceVariant = PurpleGray80,
-    outline = PurpleGray60
+    outline = PurpleGray60,
 )
 
 /**
@@ -100,7 +100,7 @@ val LightAndroidColorScheme = lightColorScheme(
     onSurface = DarkGreenGray10,
     surfaceVariant = GreenGray90,
     onSurfaceVariant = GreenGray30,
-    outline = GreenGray50
+    outline = GreenGray50,
 )
 
 /**
@@ -130,7 +130,7 @@ val DarkAndroidColorScheme = darkColorScheme(
     onSurface = DarkGreenGray90,
     surfaceVariant = GreenGray30,
     onSurfaceVariant = GreenGray80,
-    outline = GreenGray60
+    outline = GreenGray60,
 )
 
 /**
@@ -140,7 +140,7 @@ val LightDefaultGradientColors = GradientColors(
     primary = Purple95,
     secondary = Orange95,
     tertiary = Blue95,
-    neutral = DarkPurpleGray95
+    neutral = DarkPurpleGray95,
 )
 
 /**
@@ -165,11 +165,11 @@ val DarkAndroidBackgroundTheme = BackgroundTheme(color = Color.Black)
  * @param androidTheme Whether the theme should use the Android theme color scheme.
  */
 @Composable
-fun FMTheme(
+fun StellarisTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = false,
     androidTheme: Boolean = false,
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = when {
         dynamicColor -> {
@@ -180,6 +180,7 @@ fun FMTheme(
                 if (darkTheme) DarkDefaultColorScheme else LightDefaultColorScheme
             }
         }
+
         androidTheme -> if (darkTheme) DarkAndroidColorScheme else LightAndroidColorScheme
         else -> if (darkTheme) DarkDefaultColorScheme else LightDefaultColorScheme
     }
@@ -193,13 +194,14 @@ fun FMTheme(
                 if (darkTheme) defaultGradientColors else LightDefaultGradientColors
             }
         }
+
         androidTheme -> defaultGradientColors
         else -> if (darkTheme) defaultGradientColors else LightDefaultGradientColors
     }
 
     val defaultBackgroundTheme = BackgroundTheme(
         color = colorScheme.surface,
-        tonalElevation = 2.dp
+        tonalElevation = 2.dp,
     )
     val backgroundTheme = when {
         dynamicColor -> defaultBackgroundTheme
@@ -209,13 +211,13 @@ fun FMTheme(
 
     CompositionLocalProvider(
         LocalGradientColors provides gradientColors,
-        LocalBackgroundTheme provides backgroundTheme
+        LocalBackgroundTheme provides backgroundTheme,
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
             typography = BaseTypography,
             shapes = shapes,
-            content = content
+            content = content,
         )
     }
 }

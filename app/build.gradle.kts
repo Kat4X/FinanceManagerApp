@@ -75,6 +75,17 @@ android {
 
 dependencies {
 
+    /**
+     * Имплементация библиотеки Koin
+     * */
+    val koinPlatform = platform(libs.koin.bom)
+    implementation(koinPlatform)
+    implementation(libs.koin.core)
+    implementation(libs.koin.ktor)
+    implementation(libs.koin.android)
+    implementation(libs.koin.core.coroutines)
+    implementation(libs.koin.compose)
+
     implementation(projects.core.common)
     implementation(projects.core.design)
     implementation(projects.core.navigation)

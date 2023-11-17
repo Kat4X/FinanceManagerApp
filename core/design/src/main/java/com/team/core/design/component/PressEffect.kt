@@ -18,7 +18,10 @@ enum class ButtonState { Pressed, Idle }
 
 fun Modifier.bounceClick() = composed {
     var buttonState by remember { mutableStateOf(ButtonState.Idle) }
-    val scale by animateFloatAsState(if (buttonState == ButtonState.Pressed) 0.70f else 1f)
+    val scale by animateFloatAsState(
+        if (buttonState == ButtonState.Pressed) 0.70f else 1f,
+        label = "",
+    )
 
     this
         .graphicsLayer {
@@ -28,7 +31,7 @@ fun Modifier.bounceClick() = composed {
         .clickable(
             interactionSource = remember { MutableInteractionSource() },
             indication = null,
-            onClick = {  }
+            onClick = { },
         )
         .pointerInput(buttonState) {
             awaitPointerEventScope {
@@ -45,14 +48,14 @@ fun Modifier.bounceClick() = composed {
 
 fun Modifier.pressClickEffect() = composed {
     var buttonState by remember { mutableStateOf(ButtonState.Idle) }
-    val ty by animateFloatAsState(if (buttonState == ButtonState.Pressed) 0f else -20f)
+    val ty by animateFloatAsState(if (buttonState == ButtonState.Pressed) 0f else -20f, label = "")
 
     this
         .graphicsLayer { translationY = ty }
         .clickable(
             interactionSource = remember { MutableInteractionSource() },
             indication = null,
-            onClick = {}
+            onClick = {},
         )
         .pointerInput(buttonState) {
             awaitPointerEventScope {

@@ -4,23 +4,26 @@ plugins {
 }
 
 android {
-    namespace = "com.team.feature.auth"
+    namespace = "com.team.feature.main"
 }
 
 dependencies {
 
-    implementation(projects.core.design)
-
+    /**
+     * Имплементация библиотеки Koin
+     * */
     val koinPlatform = platform(libs.koin.bom)
     implementation(koinPlatform)
     implementation(libs.koin.core)
+    implementation(libs.koin.ktor)
     implementation(libs.koin.android)
     implementation(libs.koin.core.coroutines)
     implementation(libs.koin.compose)
 
-    implementation(libs.androidx.compose.lifecycle)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.android.material)
-    implementation(libs.com.timber)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }

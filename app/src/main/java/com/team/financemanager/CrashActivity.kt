@@ -6,13 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.BugReport
@@ -31,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.team.core.common.GlobalExceptionHandler
-import com.team.core.design.theme.FMTheme
+import com.team.core.design.theme.StellarisTheme
 import timber.log.Timber
 
 class CrashActivity : ComponentActivity() {
@@ -44,13 +38,12 @@ class CrashActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
-            FMTheme {
+            StellarisTheme {
                 BoxWithConstraints {
                     CrashScreen(
-                        modifier = Modifier.fillMaxSize()
-                    ) {
-                        reportErrorData()
-                    }
+                        onClick = ::reportErrorData,
+                        modifier = Modifier.fillMaxSize(),
+                    )
                 }
             }
         }
@@ -65,19 +58,19 @@ class CrashActivity : ComponentActivity() {
 
 @Composable
 fun CrashScreen(
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    onButtonClick: () -> Unit,
 ) {
     // Remember a SystemUiController
     val systemUiController = rememberSystemUiController()
     val useDarkIcons = !isSystemInDarkTheme()
 
     DisposableEffect(systemUiController, useDarkIcons) {
-        // Update all of the system bar colors to be transparent, and use
+        // Update all the system bar colors to be transparent, and use
         // dark icons if we're in light theme
         systemUiController.setSystemBarsColor(
             color = Color.Transparent,
-            darkIcons = useDarkIcons
+            darkIcons = useDarkIcons,
         )
 
         // setStatusBarColor() and setNavigationBarColor() also exist
@@ -90,34 +83,34 @@ fun CrashScreen(
             .background(MaterialTheme.colorScheme.background)
             .padding(24.dp),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Icon(
             imageVector = Icons.Rounded.BugReport,
             contentDescription = null,
             tint = MaterialTheme.colorScheme.onBackground,
-            modifier = Modifier.size(32.dp)
+            modifier = Modifier.size(32.dp),
         )
         Spacer(modifier = Modifier.padding(8.dp))
         Text(
             text = "Непредвиденная ошибка",
             style = MaterialTheme.typography.titleLarge,
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onBackground
+            color = MaterialTheme.colorScheme.onBackground,
         )
         Spacer(modifier = Modifier.padding(6.dp))
         Text(
             text = "TODO сделать извинения и попросить зарепортить",
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onBackground
+            color = MaterialTheme.colorScheme.onBackground,
         )
         Spacer(modifier = Modifier.padding(16.dp))
-        Button(onClick = onButtonClick, shape = RoundedCornerShape(10.dp)) {
+        Button(onClick = onClick, shape = RoundedCornerShape(10.dp)) {
             Text(
                 text = "Report and restart",
                 style = MaterialTheme.typography.bodyMedium,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
         }
     }
@@ -126,9 +119,11 @@ fun CrashScreen(
 @Preview(name = "phone", device = "spec:shape=Normal,width=360,height=640,unit=dp,dpi=480")
 @Composable
 fun PreviewCrashScreen() {
-    FMTheme {
+    StellarisTheme {
         BoxWithConstraints {
-            CrashScreen {}
+            CrashScreen(
+                onClick = {},
+            )
         }
     }
 }

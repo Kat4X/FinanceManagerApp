@@ -1,5 +1,4 @@
 @file:Suppress("UnstableApiUsage")
-
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -25,6 +24,7 @@ rootProject.name = "finance-manager-app-android"
 includeBuild("build-logic")
 
 include(":app")
+include(":feature:main")
 include(":core:common")
 include(":core:design")
 include(":core:navigation")

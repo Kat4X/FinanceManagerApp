@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.team.core.design.theme.FMTheme
+import com.team.core.design.theme.StellarisTheme
 import com.team.core.design.theme.defaultButtonShape
 
 @Composable
@@ -39,7 +39,7 @@ fun ButtonFm(
 @Preview
 @Composable
 fun PreviewButtonFm() {
-    FMTheme {
+    StellarisTheme {
         BoxWithConstraints(
             modifier = Modifier
                 .background(Color.White)
